@@ -7,3 +7,5 @@ docker container run -dp 8888:8080 davigdc/conversao-temperatura
 ```
 
 - Na segunda aula (pasta kube-news) foi explicado os princípios e finalidades do kubernetes, o objetivo foi criar um cluster local com a ferramenta k3d e subir a aplicação disponibilizada neste cluster, criando o manifesto de deployment e service da aplicação e banco de dados postgres. Foi gerado um novo container e armazenado no docker hub (https://hub.docker.com/r/davigdc/kube-dev). 
+
+- Na terceira aula (pasta terraform) foi criado um cluster k8s na Digital Ocean e "deployado" nossa aplicação para acesso de qualquer lugar.

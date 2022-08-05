@@ -12,13 +12,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Docker Login
+      - name: Login DockerHub
         uses: docker/login-action@v2.0.0
         with:
           username: ${{secrets.DOCKER_USERNAME}}
           password: ${{secrets.DOCKER_PASSWORD}}
 
-      - name: Build and push Docker images
+      - name: Build and push container
         uses: docker/build-push-action@v3.1.0
         with:
           file: ./kube-news/src/Dockerfile
@@ -35,13 +35,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Kubernetes Set Context
+      - name: Set Kubeconfig
         uses: Azure/k8s-set-context@v3.0
         with:
           method: kubeconfig
           kubeconfig: ${{secrets.K8S_KUBECONFIG}}
 
-      - name: Deploy to Kubernetes cluster
+      - name: Deploy to k8s
         uses: Azure/k8s-deploy@v4.3
         with:
           images: |
